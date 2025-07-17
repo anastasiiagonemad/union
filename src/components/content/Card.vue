@@ -5,9 +5,8 @@
     >
         <div v-if="film.Poster" :class="$style.card__poster">
             <img 
-              :src="film.Poster.length
-                ? film.Poster 
-                : '/images/placeholder.webp'" 
+              :src="film.Poster" 
+              onerror="src='/images/placeholder.webp'"
               alt="poster"
             >
         </div>
@@ -39,6 +38,12 @@ const movieStore = useMoviesStore()
     width: 245px;
     height: 381px;
     cursor: pointer;
+    transition: .3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.02);
+        transition: .3s ease-in-out;
+    }
 
     &__poster {
         img {

@@ -9,18 +9,46 @@
             </div>
             <div :class="$style.popup__container">
                 <div :class="$style.popup__content__poster">
-                <img v-if="film.Poster" :src="film.Poster" alt="poster">
-                <img v-else src="/images/placeholder.webp" alt="poster">
+                <img 
+                  :src="film.Poster"
+                  onerror="src='/images/placeholder.webp'" 
+                  alt="poster"
+                >
+            
             </div>
             <div :class="$style.popup__content__description">
                 <h2>{{ film.Title }}</h2>
                 <p>{{ film.Year }}</p>
-                <p>{{ film.Plot }}</p>
-                <p>Actors: {{ film.Actors }}</p>
-                <p>Country: {{ film.Country }}</p>
-                <p>Boxes: {{ film.BoxOffice }}</p>
-                <p>Awards: {{ film.Awards }}</p>
-                <p>Rating: {{ film.imdbRating }}</p>
+                <p 
+                  v-show="film.Plot !== 'N/A'"
+                >
+                  {{ film.Plot }}
+                </p>
+                <p 
+                  v-show="film.Actors !== 'N/A'"
+                >
+                  Actors: {{ film.Actors }}
+                </p>
+                <p
+                  v-show="film.Country !== 'N/A'"
+                >
+                    Country: {{ film.Country }}
+                </p>
+                <p
+                  v-show="film.BoxOffice !== 'N/A'"
+                >
+                    Boxes: {{ film.BoxOffice }}
+                </p>
+                <p
+                  v-show="film.Awards !== 'N/A'"
+                >
+                    Awards: {{ film.Awards }}
+                </p>
+                <p
+                  v-show="film.imdbRating !== 'N/A'"
+                >
+                    Rating: {{ film.imdbRating }}
+                </p>
             </div>
             </div>
         </div>
@@ -56,9 +84,9 @@ console.log(props.film)
     align-items: center;
 
     &__container {
-        display: flex;
-        justify-content: space-between;
-        gap: 10vw;
+        display: grid;
+        grid-template-columns: 30% 1fr;
+        gap: 5vw;
 
         @media screen and (max-width: $screen-sm) {
             flex-direction: column;
@@ -86,7 +114,6 @@ console.log(props.film)
         border-radius: 10px;
 
         @media screen and (max-width: $screen-sm) {
-            width: calc(100% - 15vw);
             height: 60vh;
         }
 
@@ -94,6 +121,7 @@ console.log(props.film)
             display: flex;
             justify-content: end;
             padding: 20px;
+            cursor: pointer;
             img {
                 width: 25px;
                 height: 25px;
@@ -102,8 +130,9 @@ console.log(props.film)
 
         &__poster {
             display: flex;
+            margin-bottom: 20px;
             img {
-                width: 300px;
+                width: 100%;
                 height: 20vw;
                 object-fit: cover;
                 object-position: top;
@@ -118,12 +147,16 @@ console.log(props.film)
         &__description {
             h2 {
                 font-family: $font-bold;
-                font-size: 5vw;
+                font-size: 3vw;
                 margin: 0;
+
+                @media screen and (max-width: $screen-s) {
+                    font-size: 7vw;
+                }
             }
             p {
                 font-size: 16px;
-                max-width: 80%;
+                max-width: 90%;
             }
         }
     }

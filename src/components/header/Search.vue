@@ -37,7 +37,6 @@ const handleSearch = () => {
     justify-content: center;
     width: 17.4vw;
     position: relative;
-    background-color: $bgWhite;
      @media screen and (max-width: $screen-s) {
             width: 100%;
         }
@@ -49,6 +48,7 @@ const handleSearch = () => {
         border-radius: 5px;
         padding: 10px 15px;
         font-family: $font-main;
+        background-color: $bgWhite;
 
         @media screen and (max-width: $screen-s) {
             width: 100%;
@@ -60,6 +60,10 @@ const handleSearch = () => {
         top: 10px;
         cursor: pointer;
         z-index: 2;
+
+        @media screen and (min-width: $screen-xl) {
+            right: 30px;
+        }
     }
 }
 </style>
