@@ -1,0 +1,26 @@
+@use './fonts';
+
+// COLORS
+$title: #0A112D;
+$blue: #3256E3;
+$white: #FFFFFF;
+$black: #000000;
+$gray: #E6EAF5;
+$darkGray: #929BBC;
+$bgWhite: #FCFCFF;
+$activeWhite: #F3F5F9;
+
+// FONT
+$font-main: 'Gilroy';
+$font-bold: 'Gilroy-Bold';
+
+// SCREENS
+$screen-xs: '375px';
+$screen-s: '550px';
+$screen-sm: '750px';
+$screen-m: '900px';
+$screen-ml: '1100px';
+$screen-l: '1440px';
+$screen-xl: '1550px';
+$screen-xxl: '1920px';
+

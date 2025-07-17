@@ -1,0 +1,15 @@
+@use './variables';
+
+#app {
+  max-width: 1920px;
+  min-width: 375px;
+  margin: 0 auto;
+  padding: 2.5vw 9.8vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, li, a  {
+  font-family: $font-main;
+}
